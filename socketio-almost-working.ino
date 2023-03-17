@@ -28,6 +28,7 @@ void event(const char * payload, size_t length) {
   USE_SERIAL.printf("got message: %s\n", payload);
 }
 
+
 void setup() {
     s.begin(115200);
 //    pinMode(LED_BUILTIN, OUTPUT);
@@ -49,6 +50,8 @@ void setup() {
       }
 
     WiFiMulti.addAP("Safudil", "0580502070");
+//    WiFiMulti.addAP("Adnan’s iPhone 12 pro max", "R69N-g0di-AaUL-ooAc");
+//    WiFiMulti.addAP("Adnan", "adnan77777777");
 
     while(WiFiMulti.run() != WL_CONNECTED) {
         digitalWrite(2, HIGH);
@@ -66,7 +69,9 @@ void setup() {
     webSocket.on("connect", handler);
     webSocket.on("disconnect", handler_disconnected);
 
-    webSocket.beginSSL("socket-io-server-utb-tele-bot.herokuapp.com", 443, "/socket.io/?transport=websocket", "11 58 B1 D9 1F 55 63 DB F0 52 63 17 82 6B 2A F2 E4 2B 7A 40");
+//    webSocket.beginSSL("socket-io-server-utb-tele-bot.herokuapp.com", 443, "/socket.io/?transport=websocket", "11 58 B1 D9 1F 55 63 DB F0 52 63 17 82 6B 2A F2 E4 2B 7A 40");
+    webSocket.beginSSL("socket-io-server-utb-tele-bot.herokuapp.com", 443, "/socket.io/?transport=websocket", "F4 D6 0D FB D7 95 65 47 D9 4B 43 4C D2 AB 9A 0A DB 0B 78 8C");
+
 //    webSocket.begin("socket-io-server-utb-tele-bot.herokuapp.com");
 //    webSocket.begin("192.168.100.9", 3001);
     // use HTTP Basic Authorization this is optional remove if not needed
@@ -85,7 +90,7 @@ void loop() {
 
 //    digitalWrite(ledPin_D1, HIGH);
 
-  if (WL_CONNECTED){
+  if (WiFi.status() == WL_CONNECTED){
 //    USE_SERIAL.println("WIFI Connected");
 //      digitalWrite(LED_BUILTIN, HIGH);
 //      digitalWrite(2, LOW);
@@ -125,23 +130,23 @@ void hi(const char* message, size_t length){
 
   if (message_2.equals("F")){
     s.write(moveFront);
-    digitalWrite(ledPin, HIGH);
+//    digitalWrite(ledPin, HIGH);
   }
   if (message_2.equals("S")){
     s.write(moveStop);
-    digitalWrite(ledPin, LOW);
+//    digitalWrite(ledPin, LOW);
   }
   if (message_2.equals("B")){
     s.write(moveBack);
-    digitalWrite(ledPin, LOW);
+//    digitalWrite(ledPin, LOW);
   }
   if (message_2.equals("L")){
     s.write(moveLeft);
-    digitalWrite(ledPin, HIGH);
+//    digitalWrite(ledPin, HIGH);
   }
   if (message_2.equals("R")){
     s.write(moveRight);
-    digitalWrite(ledPin, HIGH);
+//    digitalWrite(ledPin, HIGH);
   }
   
   
