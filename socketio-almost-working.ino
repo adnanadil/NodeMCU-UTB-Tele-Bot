@@ -48,10 +48,10 @@ void setup() {
           USE_SERIAL.flush();
           delay(1000);
       }
+//WiFiMulti.addAP("OPPO A53", "Password");
+WiFiMulti.addAP("UTB-Students.", NULL);
 
-    WiFiMulti.addAP("Safudil", "0580502070");
-//    WiFiMulti.addAP("Adnan’s iPhone 12 pro max", "R69N-g0di-AaUL-ooAc");
-//    WiFiMulti.addAP("Adnan", "adnan77777777");
+
 
     while(WiFiMulti.run() != WL_CONNECTED) {
         digitalWrite(2, HIGH);
@@ -148,7 +148,8 @@ void hi(const char* message, size_t length){
     s.write(moveRight);
 //    digitalWrite(ledPin, HIGH);
   }
-  
+
+ 
   
   
   else{
